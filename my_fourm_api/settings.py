@@ -146,6 +146,8 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
+    "http://34.71.173.139:80",
+    "http://34.70.158.129:80",
 
 ]
 
@@ -155,6 +157,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
+    "http://34.71.173.139:80",
+    "http://34.70.158.129:80",
 
 ]
 
@@ -170,10 +174,10 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 CORS_ALLOW_METHODS = [
-    # 'DELETE',
+    'DELETE',
     'GET',
-    # 'OPTIONS',
-    # 'PATCH',
-    # 'POST',
-    # 'PUT',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
 ]

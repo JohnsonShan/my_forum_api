@@ -24,7 +24,7 @@ class Comment(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return '%s, %s, %s' % (self.owner, self.content, self.created)
+        return '%s, %s, %s' % (self.owner, self.created, self.content)
 
 # def save(self, *args, **kwargs):
 #     options = {'title': self.title} if self.title else {}
