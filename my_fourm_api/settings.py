@@ -153,7 +153,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost",
     "http://34.71.173.139",
     "http://34.70.158.129",
-
+    "http://34.67.255.85",
 ]
 
 
@@ -162,7 +162,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     "http://34.71.173.139",
     "http://34.70.158.129",
-
+    "http://34.67.255.85",
 ]
 
 CORS_ALLOW_HEADERS = [
