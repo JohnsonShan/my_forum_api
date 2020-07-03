@@ -24,6 +24,16 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     posts = serializers.HyperlinkedRelatedField(
         many=True, read_only=True, view_name='post-detail')
 
+    def create(self, validated_data):
+
+        user = User.objects.create(
+            username=validated_data['username']
+        )
+        user.set_password(validated_data['password'])
+        user.save()
+
+        return user
+
     class Meta:
         model = User
-        fields = ['url', 'id', 'username', 'posts']
+        fields = ['url', 'id', 'username','password', 'posts']

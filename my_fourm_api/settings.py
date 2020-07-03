@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework.authtoken',
     'rest_framework',
+
     'posts.apps.PostsConfig',
+
     'corsheaders',
 ]
 
@@ -126,15 +130,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 9999,
 
 }
 
 CORS_ALLOW_CREDENTIALS = True
-
-CORS_ORIGIN_ALLOW_ALL = True
-
+SESSION_COOKIE_SAMESITE = None
+# CORS_ORIGIN_ALLOW_ALL = True
+# CSRF_USE_SESSIONS = True
 # CORS_ORIGIN_WHITELIST = (
 # '*'
 # )
@@ -142,22 +149,19 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     # "https://example.com",
     # "https://sub.example.com",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-    "http://34.71.173.139:80",
-    "http://34.70.158.129:80",
+    # "http://localhost/"
+    "http://localhost",
+    "http://34.71.173.139",
+    "http://34.70.158.129",
 
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
     # 'change.allowed.com',
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-    "http://34.71.173.139:80",
-    "http://34.70.158.129:80",
+    "http://localhost",
+    "http://34.71.173.139",
+    "http://34.70.158.129",
 
 ]
 

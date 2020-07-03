@@ -17,6 +17,8 @@ from rest_framework import permissions
 from rest_framework.parsers import JSONParser
 from rest_framework import viewsets
 
+
+
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
@@ -37,11 +39,12 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
 
 @api_view(['GET'])
 def api_root(request, format=None):
